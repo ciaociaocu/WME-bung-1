@@ -1,0 +1,1657 @@
+= Pflichtenheft
+:project_name: swt19w7-HexaNux
+== __{project_name}__
+
+[options="header"]
+[cols="1, 1, 1, 1, 4"]
+|===
+|Version   | Status      | Bearbeitungsdatum   | Autoren(en)  |  Vermerk
+|0.1       | In Arbeit   | 10.10.2019          | Autor        | Initiale Version
+|0.2       | In Arbeit   | 21.10.2019          | Marcus       | Aufgabenstellung hinzugefügt
+|0.3       | In Arbeit   | 22.10.2019          | Marcus       | Erste Funktionale Anforderungen hinzugefügt
+|0.4.1     | In Arbeit   | 25.10.2019          | Eric         | Akteure Tabelle hinzugefügt
+|0.4.2     | In Arbeit   | 25.10.2019          | Marcus       | An Funktionalen Anforderung gearbeitet, Optionale Anforderungen bearbeitet, Rechtschreibung korrigiert
+|0.4.3     | In Arbeit   | 25.10.2019          | Liu          | Produktnutzung und Interessensgruppen(Stakeholders) hinzugefügt
+|0.5       | In Arbeit   | 25.10.2019          | Eric         | Use Cases hinzugefügt
+|0.5.1     | In Arbeit   | 27.10.2019          | Marcus       | Verkaufsfunktionalität hinzugefügt
+|0.5.2     | In Arbeit   | 27.10.2019          | Marcus       | Bilder eingefügt
+|0.5.3     | In Arbeit   | 27.10.2019          | Eric         | An Akteuren gearbeitet, an Use-Cases gearbeitet
+|0.5.4     | In Arbeit   | 27.10.2019          | Marcus       | Falsche Referenzen bei Use-Cases verbessert
+|0.5.5     | In Arbeit   | 27.10.2019          | Max          | Klassen/Enumeration hinzugefügt
+|0.6       | In Arbeit   | 29.10.2019          | Marcus       | Funktionalen Anforderungen ergänzt und bearbeitet
+|0.7       | In Arbeit   | 01.11.2019          | Alina        | GUI-Entwürfe und Beschreibungen hinzugefügt
+|0.7.1     |In Arbeit    | 02.11.2019          | Max          |Klassendiagramm hinzugefügt
+|===
+
+== Inhaltsverzeichnis
+Dieses Dokument benötigt ein Inhaltsverzeichnis. Es existieren mehrere Einbindungsmöglichkeiten.
+
+== Zusammenfassung
+Eine kurze Beschreibung des Dokuments. Wenige Absätze.
+
+== Aufgabenstellung und Zielsetzung
+
+Die Firma HexaNux beliefert seine Kunden mit PC-Komplettsystemen sowie mit Zubehör und Verbrauchsmaterialien (CDs, Druckerpatronen, Toner, etc.). Die Firma kennt zwei Arten von Kunden, Privat - und Geschäftskunden(B2C & B2B). Ein neues IT-System soll die Beziehung zum Kunden vereinfachen und einen Wettbewerbsvorteil für seine Geschäftskunden bieten.
+Geschäftskunden können, wenn sie angemeldet sind, Bestellungen (nur Erweiterungen von Bestehender Hardware oder Upgrade) aufgeben sowie ihren derzeitigen EDV-Bestand einsehen. In der Bestandsanzeige soll der Kunde Geräte auswählen und mit Reparatur- oder Serviceaufträgen versehen können. Keine Aktion geschieht ohne Auftrag! Geschäftskunden werden von einem Mitarbeiter angelegt und mit einem vorläufigen Kennwort versehen welches der Kunde danach ändern kann.
+Privatkunden können sich selbst am System anmelden. Eine Überprüfung der Email und Postadresse (ähnlich Web.de) kann helfen die Gültigkeit einer Adresse zu prüfen. Hat sich der Kunde angemeldet so ist es ihm möglich sein, aus einer vorgegebenen Auswahl von Geräten ein Basismodell auszuwählen und dieses nach seinen Wünschen zu konfigurieren. Privatkunden sollen zudem die Möglichkeit bekommen gebrauchte Geräte wieder an HexaNux verkaufen zu können.
+Jeder Geschäftskunde hat einen bestimmten Verkaufsleiter als Ansprechpartner. Dieser wird zugeordnet wenn der Verkaufsleiter den Geschäftskunden in der Datenbank anlegt. Der Verkaufsleiter nimmt alle eingehenden Bestellungen und Serviceanfragen entgegen prüft diese und erstellt dann einen Auftrag an das Lager und den Service. Zudem entscheidet der Verkaufsleiter, zu welchem Preis Geräte von Privatkunden zurückgekauft werden.
+Das Lager verwaltet den Bestand aller Geräte und Verbrauchsmaterialien. Für alle Posten gibt es Mindestbestände. Werden diese unterschritten, bestellt das Lager automatisch aus einer Auswahl von Händlern zu den günstigsten Konditionen nach. Geht ein Auftrag von einem Verkaufsleiter ein, stellt das Lager die Bestellung zusammen (Kommissionierung) und erstellt dann einen Auftrag für den Versand, welcher sich dann um Auslieferung und Aufstellung der Gerät kümmert. Für den letzten Punkt muss ein Auftrag für den Service erstellt werden.
+Das System soll zudem ein „Kassenbuch“ führen, welches die Buchhaltung und den Jahresabschluss vereinfachen soll. Hierzu sollen alle Transaktionen gespeichert und nach bestimmten Filterkriterien gedruckt werden können. Auf diese Daten hat natürlich nur der Geschäftsführer und die Buchhaltung Zugriff.
+Dem Kunden ist es besonders wichtig, dass seine Geschäftsprozesse von dem zu entwickelnden IT-System vollständig abgebildet werden.
+
+Text aus Aufgabenstellung kopieren und ggfs. präzisieren.
+Insbesondere ergänzen, welche Ziele mit dem Abschluss des Projektes erreicht werden sollen.
+
+== Produktnutzung
+Dieser Abschnitt gibt einen Überblick darüber, wie das Produkt nach Fertigstellung und unter welchen Umständen verwendet werden soll.
+
+
+Das System der Firma HexaNux wird als eine Vereinfachung der Beziehung zum Kunden verwendet, um PC-Komplettsysteme, sowie Zubehör und Verbrauchsmaterialien (CDs, Druckerpatronen, Toner, etc.) an Kunden zu verkaufen. Die Firma kennt zwei Arten von Kunden, Privat - und Geschäftskunden (B2C & B2B). Das neue IT-System soll einen Wettbewerbsvorteil für seine Geschäftskunden bieten.
+
+Die Zielgruppe von HexaNux sind vorallem Geschäftskunden, sowie Privatkunden die IT-Systeme für ihren täglichen Gebrauch online erwerben möchten.
+
+Außerdem kann das System dem Geschäftsführer und der Buchhaltung gefilterte Informationen über den momentanen Finanzstatus der Firma aufzeigen.
+
+Weiterhin soll das Lager von HexaNux dazu in der Lage sein neue Ware vollautomatisiert beim Händler zu bestellen.
+
+Weitere Informationen zur Produktnutzung des Systems können aus den Kapiteln "Funktionale Anforderungen" sowie "Anwendungsfälle" entnommen werden.
+
+== Interessensgruppen (Stakeholders)
+
+In der nachfolgenden Tabelle sind die Gruppen bzw. Einzelpersonen aufgelistet, welche einen Einfluss auf die Anforderungen des Systems besitzen. Weiterhin wurde ihnen eine Priorität zugewiesen und ihre Ziele beschrieben.
+Die zugewiesenen Prioritäten reichen von 1 (niedrigste Priorität) bis 5 (höchste Priorität).
+
+[options="header", cols="2, ^1, 4, 4"]
+|===
+|Name
+|Priorität  (1..5)
+|Beschreibung
+|Ziele
+
+
+|Geschäftsführer/Inhaber
+|5
+|der Leiter des Systems
+a|
+
+- Erleichterte Übericht hinsichtlich der Buchhaltung
+- Zugriff auf das gesamte System
+
+|Geschäftskunde
+|4
+|Primärnutzer des IT-Systems, die einen Wettbewerbsvorteil besitzen sollen.
+a|
+
+- Registrieren im System
+- Erweiterungen von bestehender Hardware, sowie Service- und Reparaturaufträge
+- Einsehen von EDV-Bestand
+- schnellere Bestellvorgänge
+- kundengeführte Bestellvorgänge
+
+|Privatkunde
+|3
+|Benutzer des IT-Systems, welche Transaktionen tätigen können
+a|
+
+- Anmeldung am System
+- Flexibel auslösen von Bestellungen
+- Möglichkeit des Verkaufes von Gebrauchtgeräten
+
+|Verkaufsleiter
+|4
+|Jene Person, welche den Geschäftskunden während des Bestellprozesses betreut.
+a|
+
+- Unterstützung während der Bearbeitung von Kundenbestellungen
+- Übersichtlichere Handhabung der Anfragen der Geschäftskunden
+- Möglichkeit Produkte dem Inventar hinzufügen
+
+|Buchhalter
+|2
+|Prüft am Jahresabschluss alle getätigten Transaktionen auf Richtigkeit - besitzt erweiterten Zugriff
+auf das Kassenbuch.
+a|
+
+- Unterstützung während der Buchhaltung und des Jahresabschlusses
+
+|Disponent
+|2
+|Jene Person, welche die Verwaltung über das Lager besitzt.
+a|
+
+- Übersichtlichere Handhabung der Produkte im Lager
+- Möglichkeit Produkte im Lager zu bearbeiten(Hinzufügen, Löschen, Bestandsgrenzen einstellen)
+
+|===
+
+
+== Systemgrenze und Top-Level-Architektur
+
+=== Kontextdiagramm
+Das Kontextdiagramm zeigt das geplante Software-System in seiner Umgebung. Zur Umgebung gehören alle Nutzergruppen des Systems und Nachbarsysteme. Die Grafik kann auch informell gehalten sein. Überlegen Sie sich dann geeignete Symbole. Die Grafik kann beispielsweise mit Visio erstellt werden. Wenn nötig, erläutern Sie diese Grafik.
+
+[[kontext_diagramm]]
+image::.\models\analysis\images\01-Kontextmodell.png[Kontextdiagramm, 80%, 80%, pdfwidth=80%, title= "Kontextdiagramm von {project_name}", align=center]
+
+
+=== Top-Level-Architektur
+Dokumentieren Sie ihre Top-Level-Architektur mit Hilfe eines Komponentendiagramm.
+
+
+[[top_level_diagramm]]
+image::.\models\analysis\images\02-Top-Level-Diagramm.png[Top-Level-Diagramm, 80%, 80%, pdfwidth=80%, title= "Top-Level-Diagramm von {project_name}", align=center]
+
+
+== Anwendungsfälle
+
+=== Akteure
+
+Akteure sind die Benutzer des Software-Systems oder Nachbarsysteme, welche darauf zugreifen. Dokumentieren Sie die Akteure in einer Tabelle. Diese Tabelle gibt einen Überblick über die Akteure und beschreibt sie kurz. Die Tabelle hat also mindestens zwei Spalten (Akteur Name und Kommentar).
+Weitere relevante Spalten können bei Bedarf ergänzt werden.
+
+// See http://asciidoctor.org/docs/user-manual/#tables
+[options="header"]
+[cols="1,4"]
+|===
+|Name |Beschreibung
+|Privatkunde  |Der Privatkunde kann sich selbst im System registrieren bzw. anmelden. Weiterhin kann er sich im unregistrierten Zustand den Katalog anschauen, sowie im angemeldeten Zustand Produkte aus dem Katalog selbstständig bestellen. Außerdem kann er bereits gebrauchte Geräte wieder an HexaNux verkaufen.
+|Geschäftskunde  |Der Geschäftskunde kann sich selbst im System registrieren bzw. anmelden. Die Registrierung wird erst abgeschlossen, wenn der ihm zugehörige Verkaufsleiter den Geschäftskunden nach der Registrierungsanfrage im System freischaltet. Desweiteren können Geschäftskunden Erweiterungen von bestehender Hardware, sowie Service- und Reparaturaufträge stellen. Außerdem können sie im System ihren EDV-Bestand einsehen.
+|Buchhalter  |Der Buchhalter hat nur Zugriff auf das Kassenbuch.
+|CEO  |Der Geschäftsführer hat Zugriff auf das Kassenbuch, sowie auf das gesamte System.
+|Verkaufsleiter  |Jedem Verkaufsleiter wird ein Geschäftskunde zugewiesen. Die durch den Geschäftskunden getätigten Bestellungen, Serviceanfragen werden vom Verkaufsleiter überprüft, bevor dieser dann einen Auftrag an das Lager sendet. Zudem entscheidet der Verkaufsleiter, zu welchem Preis Geräte von Privatkunden zurückgekauft werden.
+|Disponent       |Der Disponent ist zuständig für die Lagerverwaltung. Er kann Produkte im Lager löschen, die jeweiligen Bestandsgrenzen anpasssen.
+|Registrierter Benutzer |Stellt jeden Benutzer dar, welcher einen Account besitzt und mit dem System interagieren kann.
+|Unregistrierter Benutzer |Stellt jeden Benutzer dar, welcher noch keinen Account besitzt und nicht angemeldet ist. Er hat Einsicht in den Katalog und den Warenkorb.
+|Benutzer |Steht für jede Person, welche mit dem System interagieren kann, angemeldet oder nicht.
+|===
+=== Überblick Anwendungsfalldiagramm
+Anwendungsfall-Diagramm, das alle Anwendungsfälle und alle Akteure darstellt
+
+
+[[use_case_diagramm]]
+image::.\models\analysis\images\03-Use-Case-Diagramm.png[Use-Case-Diagramm, 80%, 80%, pdfwidth=80%, title= "Use-Case-Diagramm von {project_name}", align=center]
+
+
+
+=== Anwendungsfallbeschreibungen
+Dieser Unterabschnitt beschreibt die Anwendungsfälle. In dieser Beschreibung müssen noch nicht alle Sonderfälle und Varianten berücksichtigt werden. Schwerpunkt ist es, die wichtigsten Anwendungsfälle des Systems zu finden. Wichtig sind solche Anwendungsfälle, die für den Auftraggeber, den Nutzer den größten Nutzen bringen.
+Für komplexere Anwendungsfälle ein UML-Sequenzdiagramm ergänzen.
+Einfache Anwendungsfälle mit einem Absatz beschreiben.
+Die typischen Anwendungsfälle (Anlegen, Ändern, Löschen) können zu einem einzigen zusammengefasst werden.
+[cols="1h, 3"]
+[[UC0010]]
+|===
+|ID                         |**<<UC0010>>**
+|Name                       |Anmeldung/Abmeldung
+|Beschreibung                |Der Kunde/CEO/Buchhalter kann sich selbstständig im System anmelden bzw. abmelden, um weitere Funktionen des Systems zu erreichen.
+|Akteure                     |Privatkunde, Geschäftskunde, Geschäftsführer, Buchhalter, Verkaufsleiter
+|Trigger                    |
+_Login_: Der Benutzer möchte auf die "versteckten" Funktionen zugreifen indem er sich anmeldet.
+
+_Logout_: Der Benutzer möchte die Seite verlassen.
+|Vorbedingungen           a|
+_Login_: Der Benutzer ist noch nicht angemeldet.
+
+_Logout_: Der Benutzer ist angemeldet.
+|Wichtige Schritte           a|
+_Login_:
+
+1. Der Benutzer wählt den "Anmelden" Button
+2. Der Benutzer gibt seine Benutzerdaten ein.
+3. Der Benutzer drückt den "Anmelden" Button.
+
+_Logout_:
+
+1. Der Benutzer drückt den "Abmelden" Button.
+2. Der Benutzer drückt den "Logout" Button und wird auf den Home Screen geschickt.
+
+|Erweiterungen                 |-
+|Funktionale Anforderungen    |<<F0010>>
+|===
+
+[cols="1h, 3"]
+[[UC0020]]
+|===
+|ID                         |**<<UC0020>>**
+|Name                       |Registrierung
+|Beschreibung                |Der Privatkunde kann sich selbstständig im System registrieren.
+|Akteure                     |Privatkunde
+|Trigger                    |
+_Registrieren_: Der Benutzer möchte sich im System registrieren um Bestellung zu tätigen.
+|Vorbedingungen           a|
+_Registrieren_: Der Benutzer ist noch nicht registriert.
+|Wichtige Schritte           a|
+_Registrieren_:
+
+1. Der Benutzer drückt den "Registrieren" Button.
+2. Der Benutzer trägt alle nötigen Daten ein.
+3. Der Benutzer drückt den "Registrierung abschließen" Button abschließen.
+
+|Erweiterungen                 |-
+|Funktionale Anforderungen    |<<F0020>>
+|===
+
+[[sequence_diagramm_uc0020]]
+image::.\models\analysis\images\04-01-Sequenzdiagramm(UC0020)-Registrierung-Privatkunden.png[Sequenzdiagramm zu [UC0020], 80%, 80%, pdfwidth=80%, title= "Sequenzdiagramm zu [UC0020] von {project_name}", align=center]
+
+
+[cols="1h,3"]
+[[UC0021]]
+|===
+|ID                         |**<<UC0021>>**
+|Name                       |Geschäftskundenregistrierung
+|Beschreibung                |Geschäftskunden können nur eine Registrierungsanfrage senden, da sie vom Verkaufsleiter in die Datenbank übertragen werden.
+|Akteure                     |Geschäftskunde
+|Trigger                    |_Registrieren_: Der Geschäftskunde möchte sich im System registrieren um Bestellung zu tätigen.
+|Vorbedingungen           a|_Registrieren_: Der Benutzer ist noch nicht registriert.
+|Wichtige Schritte           a|
+
+1. Der Geschäftskunde drückt den "Registrieren" Button.
+2. Der Geschäftskunde trägt alle nötigen Daten ein.
+3. Der Geschäftskunde drückt den "Registrierung abschließen" Button.
+4. Die Registrierungsanfrage wird an den Verkaufsleiter gesendet.
+   |Erweiterungen                a|-
+   |Funktionale Anforderungen    |<<F0025>>
+   |===
+
+[cols="1h, 3"]
+[[UC0110]]
+|===
+|ID                         |**<<UC0110>>**
+|Name                       |Serviceantrag stellen
+|Beschreibung                |Jeder Geschäftskunde kann über das Menü den Service erreichen, wo er mittels Bestellnummer und Text einen Antrag auf Service stellen kann.
+|Akteure                     |Geschäftskunde
+|Trigger                    |Der Geschäftskunde drückt den "Servicauftrag stellen" Button.
+|Vorbedingungen           a|Der Geschäftskunde befindet im Servicebereich
+|Wichtige Schritte           a|
+
+1.  Wechsel in den Servicebereich über das Menü.
+2.  Im Servicebereich eingeben der Bestellnummer sowie einer Beschreibung des Problems.
+3.  Betätigen des "Serviceantrag stellen" Buttons.
+
+|Erweiterungen                 |-
+|Funktionale Anforderungen    |<<F0410>>
+|===
+
+[cols="1h, 3"]
+[[UC0120]]
+|===
+|ID                         |**<<UC0120>>**
+|Name                       |Bestellungsanfrage stellen
+|Beschreibung                |Jeder Geschäftskunde kann in der Kasse eine Bestellungsanfrage stellen.
+|Akteure                     |Geschäftskunde
+|Trigger                    |Der Geschäftskunde drückt den "zahlungspflichtig Bestellen" Button
+|Vorbedingungen           a|Der Geschäftskunde befindet sich in der Kasse
+|Wichtige Schritte           a|
+
+1.  Der Kunde drückt den Button "zahlungspflichtig Bestellen" nachdem er seine Zahlungsinformationen ausgegeben hat.
+2.  Der Kunde wird weitergeleitet auf die Bestellbestätigung wo er die Information findet das seine Anfrage eingegangen ist.
+
+|Erweiterungen                 |-
+|Funktionale Anforderungen    |<<F0402>>
+|===
+
+
+[[sequence_diagramm_uc0120]]
+image::.\models\analysis\images\04-02-Sequenzdiagramm(UC0120)-Bestellung-Geschäftskunden.png[Sequenzdiagramm zu [UC0120], 80%, 80%, pdfwidth=80%, title= "Sequenzdiagramm zu [UC0120] von {project_name}", align=center]
+
+[cols="1h, 3"]
+[[UC0130]]
+|===
+|ID                         |**<<UC0130>>**
+|Name                       |Mein Bestand einsehen
+|Beschreibung                |Jeder Geschäftskunde kann unter "Services" seinen Bestand einsehen.
+|Akteure                     |Geschäftskunde
+|Trigger                    |Der Geschäftskunde drückt den "Mein Bestand" Button
+|Vorbedingungen           a|Der Geschäftskunde befindet sich im Reiter Services
+|Wichtige Schritte           a|
+
+1.  Der Kunde drückt den Button "Mein Bestand".
+2.  Der Kunde wird weitergeleitet auf die Bestandsübersicht, wo er eine Tabelle einsehen kann, welche seine Bestellunge darstellt.
+
+|Erweiterungen                 |-
+|Funktionale Anforderungen    |<<F0240>>
+|===
+
+[cols="1h, 3"]
+[[UC0210]]
+|===
+|ID                         |**<<UC0210>>**
+|Name                       |Katalog einsehen
+|Beschreibung                |Jeder Besucher auf HexaNux kann den Katalog öffnen, wo er alle Produkte einsehen kann.
+Nur Geschäftskunden können im eingeloggten Zustand Service- bzw. Reparaturaufträge im Katalog finden
+|Akteure                     |Benutzer
+|Trigger                    |
+Der Katalog wird erreicht über den Button "Katalog" im Menü
+|Vorbedingungen           a|
+Keine
+|Wichtige Schritte           a|
+
+1. Der Benutzer drückt den Button "Katalog"
+2. Er wird weitergeeleitet in den ungefilterten Katalog.
+3. Dort findet er einen Reiter, wo er speziell nach einzelnen Produkten suchen kann.
+   |Erweiterungen                 |-
+   |Funktionale Anforderungen   |<<F0210>>, <<F0211>>, <<F0212>>, <<F0213>>, <<F0220>>
+   |===
+
+[cols="1h,3"]
+[[UC0220]]
+|===
+|ID                         |**<<UC0220>>**
+|Name                       |Produkt-Details einsehen
+|Description                |Jeder Benutzer kann die Details seines Produktes auf einer extra Seite einsehen.
+|Actors                     |Benutzer
+|Trigger                    |Der Benutzer klickt im Katalog auf das jeweilige Produkt, um die Details einzusehen.
+|Precondition(s)           a|Der Benutzer befindet sich im Katalog
+|Wichtige Schritte           a|
+
+1.  Der Benutzer klickt auf das jeweilige Produkt im Katalog.
+2.  Der Benutzer sieht nun die Details seines Produktes.
+    |Erweiterungen               a|-
+    |Funktionale Anforderungen    | <<F0220>>
+    |===
+
+cols="1h,3"]
+[[UC0230]]
+|===
+|ID                         |**<<UC0230>>**
+|Name                       |Kommentare hinzufügen
+|Description                |Jeder registrierte Benutzer kann jedes Produkt in den Produktdetails kommentieren.
+|Actors                     |Registrierter Benutzer
+|Trigger                    |Der Benutzer klickt in den Produktdetails auf den Button "Kommentieren".
+|Precondition(s)           a|Der Benutzer befindet sich in den Produktdetails und muss angemeldet sein.
+|Wichtige Schritte           a|
+
+1.  Der Benutzer kann in den Textfeldern seinen Namen und einen Text eingeben um das Produkt zu kommentieren.
+2.  Um den Kommentar sichtbar zu machen drückt er den Button "Kommentieren".
+    |Erweiterungen               a|-
+    |Funktionale Anforderungen    | <<F0223>>
+    |===
+
+
+
+
+[cols="1h, 3"]
+[[UC0230]]
+|===
+|ID                         |**<<UC0230>>**
+|Name                       |Verkaufsanfrage stellen
+|Beschreibung                |Jeder Privatkunde kann eine Verkaufsanfrage für jedes beliebige Produkt seiner Wahl, welches er bei HexaNux gekauft hat, stellen.
+|Akteure                     |Privatkunde
+|Trigger                    |Der Benutzer drückt den Button "Verkaufsanfrage stellen".
+|Vorbedingungen           a|Der Benutzer muss die Rolle Privatkunde besitzen und im Menü Verkauf sein.
+|Wichtige Schritte           a|
+
+1.  Der Benutzer findet im Menü Verkauf einen Katalog mit den möglichen zu verkaufenden Produkten.
+2.  Der Benutzer kann nun jedes Produkt anwählen.
+3.  Es öffnet sich nun die Details wo er den Zustand seines Produktes kurz beschreibt.
+4.  Um die Verkaufsanfrage zu stellen drückt er nun auf den Button "Verkaufsanfrage stellen".
+
+|Erweiterungen                 |-
+|Funktionale Anforderungen    |<<F0404>>
+|===
+
+
+[cols="1h,3"]
+[[UC0310]]
+|===
+|ID                         |**<<UC0310>>**
+|Name                       |Warenkorb anzeigen
+|Description                |Jeder Benutzer kann den Inhalt seines Warenkorb jederzeit einsehen, sowie den kompletten Preis seines Einkaufes.
+|Actors                     |Benutzer
+|Trigger                    |Der Benutzer erreicht den Warenkorb über das Warenkorb Icon.
+|Precondition(s)           a|Keine
+|Wichtige Schritte           a|
+
+1.  Der Benutzer drückt den Warenkorb Button
+2.  Der Warenkorb öffnet sich.
+3.  Der Benutzer sieht nun alle Produkte seiner Bestellung, deren einzelnen Preis, sowie den gesamten Preis.
+    |Erweiterungen                a|-
+    |Funktionale Anforderungen    | <<F0300>>, <<F0301>>, <<F0310>>
+    |===
+
+[cols="1h,3"]
+[[UC0320]]
+|===
+|ID                         |**<<UC0320>>**
+|Name                       |Produkt hinzufügen
+|Beschreibung                |Jeder Benutzer kann über die Produktdetails seinen Artikel zu Warenkorb hinzufügen.
+
+|Akteure                     |Benutzer
+|Trigger                    |Der Benutzer klickt den "Zum Warenkorb hinzufügen" Button.
+|Vorbedingungen           a|Der Benutzer befindet sich in den Produkt Details eines Artikels.
+|Wichtige Schritte           a|
+
+1.  Der Benutzer drückt den "Zum Warenkorb hinzufügen" Button.
+2.  Das Produkt wird zum Warenkorb hinzugefügt
+    |Erweiterungen                a|-
+    |Funktionale Anforderungen    | <<F0301>>
+    |===
+
+[cols="1h,3"]
+[[UC0330]]
+|===
+|ID                         |**<<UC0330>>**
+|Name                       |Zur Kasse gehen
+|Beschreibung                |Jeder registrierte Benutzer kann über den Warenkorb die Kasse erreichen, wo er seine Zahlinformationen eintragen muss.
+Der unregistrierte Benutzer wird nicht zur Kasse weitergeileitet, sondern zur Anmeldung bzw. Registrierung.
+
+|Akteure                     |Registrierter Benutzer, unregistrierte Benutzer
+|Trigger                    |Der Benutzer hat den zur Kasse Button betätigt.
+|Vorbedingungen           a|Der Benutzer muss registriert sein. Weiterhin darf sein Warenkorb auch nicht leer sein.
+|Wichtige Schritte           a|
+
+1.  Im Warenkorb muss sich mindestens ein Produkt befinden.
+2.  Der Benutzer klickt den Button "Zur Kasse".
+3.  Die Bestellung wird mit Lager überprüft
+    |Erweiterungen                a|-
+    |Funktionale Anforderungen    | <<F0320>>
+    |===
+
+[cols="1h,3"]
+[[UC0340]]
+|===
+|ID                         |**<<UC0340>>**
+|Name                       |Warenkorb löschen
+|Beschreibung                |Jeder Benutzer kann im Warenkorb all seine Produkte löschen die sich darin befinden.
+
+|Akteure                     |Registrierter Benutzer, unregistrierte Benutzer
+|Trigger                    |Der Benutzer hat "Warenkorb löschen" Button betätigt.
+|Vorbedingungen           a|Der Benutzer muss sich im Warenkorb befinden. Weiterhin darf sein Warenkorb auch nicht leer sein.
+|Wichtige Schritte           a|
+
+1.  Im Warenkorb muss sich mindestens ein Produkt befinden.
+2.  Der Benutzer klickt den Button "Warenkorb löschen".
+3.  Im Warenkorb befindet sich nun kein Produkt mehr.
+    |Erweiterungen                a|-
+    |Funktionale Anforderungen    | <<F0311>>
+    |===
+
+[cols="1h,3"]
+[[UC0350]]
+|===
+|ID                         |**<<UC0350>>**
+|Name                       |Produkt aus Warenkorb entfernen
+|Beschreibung                |Jeder Benutzer kann im Warenkorb einzelne Produkte löschen die sich darin befinden.
+
+|Akteure                     |Registrierter Benutzer, unregistrierte Benutzer
+|Trigger                    |Der Benutzer hat "einzelne Produkte aus Warenkorb löschen" Button betätigt.
+|Vorbedingungen           a|Der Benutzer muss sich im Warenkorb befinden. Weiterhin darf sein Warenkorb auch nicht leer sein.
+|Wichtige Schritte           a|
+
+1.  Im Warenkorb muss sich mindestens ein Produkt befinden.
+2.  Der Benutzer klickt den Button "einzelnes Produkt aus Warenkorb löschen".
+3.  Im Warenkorb befindet sich nun dieses Produkt nicht mehr.
+    |Erweiterungen                a|-
+    |Funktionale Anforderungen    | <<F0312>>
+    |===
+
+[cols="1h,3"]
+[[UC0360]]
+|===
+|ID                         |**<<UC0360>>**
+|Name                       |Produktanzahl ändern
+|Beschreibung                |Jeder Benutzer kann im Warenkorb für das jeweilige Produkt die Anzahl ändern.
+
+|Akteure                     |Registrierter Benutzer, unregistrierte Benutzer
+|Trigger                    |Der Benutzer hat den "+" oder "-" Button betätigt.
+|Vorbedingungen           a|Der Benutzer muss sich im Warenkorb befinden. Weiterhin darf sein Warenkorb auch nicht leer sein.
+|Wichtige Schritte           a|
+
+1.  Im Warenkorb muss sich mindestens ein Produkt befinden.
+2.  Der Benutzer klickt den Button "+" oder "-".
+3.  Im Warenkorb ändert sich nun die Anzahl des jeweiligen Produktes.
+    |Erweiterungen                a|-
+    |Funktionale Anforderungen    | <<F0313>>
+    |===
+
+
+[cols="1h, 3"]
+[[UC0130]]
+|===
+|ID                         |**<<UC0130>>**
+|Name                       |Upgrades bestellen
+|Beschreibung                |Jeder Kunde kann unter Services Upgrades für alle seine bestellten Produkte bestellen. Geschäftskunden können jedoch ausser "Paketen", auch einzelne Upgrades für verschieden Komponenten bestellen.
+
+|Akteure                     |Geschäftskunde
+|Trigger                    |Der Kunde drückt den "Upgrade bestellen" Button
+|Vorbedingungen           a|Der Geschäftskunde befindet sich im Reiter Services
+|Wichtige Schritte           a|
+
+1.  Der Kunde findet in Services einen weiteren Menüpunkt "Upgrades".
+2.  Dort sieht er eine Ansicht aller bestellten Produkte, welche als Upgrades bereit stehen, sowie die einzelnen Pakete.
+3.  Nun kann er einzelne Upgrades auswählen und einen Serviceantrag stellen.
+4.  Der Kunde wird weitergeleitet auf die Bestellbestätigung, wo er die Information findet das seine Anfrage eingegangen ist.
+
+
+|Erweiterungen                 |-
+|Funktionale Anforderungen    | <<F0250>>, <<F0251>>, <<F0252>>
+|===
+
+
+[cols="1h,3"]
+[[UC0400]]
+|===
+|ID                         |**<<UC0400>>**
+|Name                       |Zahlungspflichtig bestellen
+|Beschreibung                |Jeder registrierte Benutzer kann in der Kasse seinen Einkauf zahlungspflichtig bestellen,
+indem er seine Zahlinformationen einträgt und den Button "Zahlungspflichtig bestellen" betätigt.
+
+|Akteure                     |Registrierter Benutzer
+|Trigger                    |Der Benutzer hat den zur "Zahlungspflichtig bestellen" Button betätigt.
+|Vorbedingungen           a|Der Benutzer befindet sich in der Kasse.
+|Wichtige Schritte           a|
+
+1.  Der Benutzer gibt seine Zahlungsinformationen ein.
+2.  Der Benutzer klickt den "Zahlungspflichtig bestellen" Button.
+    |Erweiterungen                a|-
+    |Funktionale Anforderungen    | <<F0322>>
+    |===
+
+[cols="1h, 3"]
+[[UC0510]]
+|===
+|ID                         |**<<UC0510>>**
+|Name                       |Finanzübersicht anzeigen
+|Beschreibung                |Buchhalter und CEO können in der Finanzübersicht alle Transaktionen einsehen.
+|Akteure                     |CEO, Buchhalter
+|Trigger                    |Der Benutzer drückt im Menü Finanzen.
+|Vorbedingungen           a|Benutzer muss die Rolle CEO oder Buchhalter besitzen.
+|Wichtige Schritte           a|
+
+1.  Der Benutzer wählt im Menü Finanzen aus.
+2.  Der Benutzer wird weitergeleitet auf die Finanzübersicht.
+
+|Erweiterungen                 |-
+|Funktionale Anforderungen    |<<F0500>>
+|===
+
+[[sequence_diagramm_uc0510]]
+image::.\models\analysis\images\04-03-Sequenzdiagramm(UC0510)-Buchhalter-Lager.png[Sequenzdiagramm zu [UC0510], 80%, 80%, pdfwidth=80%, title= "Sequenzdiagramm zu [UC0510] von {project_name}", align=center]
+
+[cols="1h, 3"]
+[[UC0520]]
+|===
+|ID                         |**<<UC0520>>**
+|Name                       |Finanzübersicht drucken
+|Beschreibung                |Buchhalter und CEO können in der Finanzübersicht die Übersicht drucken lassen.
+|Akteure                     |CEO, Buchhalter
+|Trigger                    |Der Benutzer drückt in der Finanzübersicht.
+|Vorbedingungen           a|Benutzer muss die Rolle CEO oder Buchhalter besitzen und sich im Menü "Finanzen" befinden.
+|Wichtige Schritte           a|
+
+1.  Der Benutzer drückt den Button "Drucken"
+2.  Der Benutzer wird weitergeleitet auf die Druckansicht der Finanzübersicht.
+3.  Um die Übersicht zu drucken drückt er nun "Drucken".
+
+|Erweiterungen                 |-
+|Funktionale Anforderungen    |<<F0500>>
+|===
+
+[cols="1h, 3"]
+[[UC0610]]
+|===
+|ID                         |**<<UC0610>>**
+|Name                       |Lager einsehen
+|Beschreibung                |Buchhalter und CEO haben Einsicht auf das Lager
+|Akteure                     |Buchhalter, CEO
+|Trigger                    |Der Benutzer drückt im Menü Lager.
+|Vorbedingungen           a|Benutzer muss die Rolle CEO oder Buchhalter besitzen.
+|Wichtige Schritte           a|
+
+1.  Der Benutzer wählt im Menü Lager aus.
+2.  Der Benutzer wird weitergeleitet auf die Lagerübersicht.
+
+|Erweiterungen                 |-
+|Funktionale Anforderungen    |<<F0100>>
+|===
+
+[cols="1h, 3"]
+[[UC0620]]
+|===
+|ID                         |**<<UC0620>>**
+|Name                       |Lagerbestände bearbeiten
+|Beschreibung                |Buchhalter und CEO haben die Möglichkeit Lagerbestände zu bearbeiten.
+|Akteure                     |Buchhalter, CEO
+|Trigger                    |Der Benutzer drückt den Button "Bearbeiten".
+|Vorbedingungen           a|Benutzer muss die Rolle CEO oder Buchhalter besitzen und sich in der Lagerübersicht befinden.
+|Wichtige Schritte           a|
+
+1.  Der Benutzer drückt den Button "Bearbeiten"
+2.  Der Benutzer kann nun den ausgewählten Lagerbestand des Produktes bearbeiten.
+
+|Erweiterungen                 |-
+|Funktionale Anforderungen    |<<F0101>>
+|===
+
+[cols="1h, 3"]
+[[UC0710]]
+|===
+|ID                         |**<<UC0710>>**
+|Name                       |Geschäftskunde registrieren
+|Beschreibung                |Der Verkaufsleiter legt den ihm zugeteilten GEschäftskunde in der Datenbank an.
+|Akteure                     |Verkaufsleiter, CEO
+|Trigger                    |Der Benutzer drückt den Button "Registrierung bestätigen" bzw. "Registrierung ablehnen".
+|Vorbedingungen           a|Benutzer muss die Rolle Verkaufsleiter besitzen und in der Kundenverwaltung sein.
+|Wichtige Schritte           a|
+
+1.  Der Benutzer findet in der Kundenverwaltung eine Übersicht mit den zu registrierenden Kunden.
+2.  Der Benutzer kann nun über den Button  "Registrierung bestätigen" bzw. "Registrierung ablehnen" den Kunden registrieren oder nicht.
+
+|Erweiterungen                 |-
+|Funktionale Anforderungen    |<<F0026>>
+|===
+
+[cols="1h, 3"]
+[[UC0720]]
+|===
+|ID                         |**<<UC0720>>**
+|Name                       |Serviceantrag überprüfen
+|Beschreibung                |Jeder Verkaufsleiter findet im Menü Kundenverwaltung eine Übersicht mit den bearbeitenden Serviceanträgen.
+Er kann diese über Buttons an- bzw. ablehnen.
+|Akteure                     |Verkaufsleiter, CEO
+|Trigger                    |Der Benutzer drückt den Button "Serviceantrag bestätigen" bzw. "Serviceantrag ablehnen".
+|Vorbedingungen           a|Benutzer muss die Rolle Verkaufsleiter besitzen und in der Kundenverwaltung sein.
+|Wichtige Schritte           a|
+
+1.  Der Benutzer findet in der Kundenverwaltung eine Übersicht mit den zu überprüfenden Serviceanträgen.
+2.  Der Benutzer kann nun über den Button  "Serviceantrag bestätigen" bzw. "Serviceantrag ablehnen" den Serviceantrag des Kunden bestätigen oder ablehnen.
+
+|Erweiterungen                 |-
+|Funktionale Anforderungen    |<<F0411>>
+|===
+
+[cols="1h, 3"]
+[[UC0730]]
+|===
+|ID                         |**<<UC0730>>**
+|Name                       |Bestellungsanfrage überprüfen
+|Beschreibung                |Jeder Verkaufsleiter findet im Menü Kundenverwaltung eine Übersicht mit den bearbeitenden Bestellugsanfragen.
+Er kann diese über Buttons an- bzw. ablehnen.
+|Akteure                     |Verkaufsleiter, CEO
+|Trigger                    |Der Benutzer drückt den Button "Bestellungsanfrage bestätigen" bzw. "Bestellungsanfrage ablehnen".
+|Vorbedingungen           a|Benutzer muss die Rolle Verkaufsleiter besitzen und in der Kundenverwaltung sein.
+|Wichtige Schritte           a|
+
+1.  Der Benutzer findet in der Kundenverwaltung eine Übersicht mit den zu überprüfenden Bestellungsanfragen.
+2.  Der Benutzer kann nun über den Button  "Bestellungsanfrage bestätigen" bzw. "Bestellungsanfrage ablehnen" die Bestellungsanfrage des Kunden bestätigen oder ablehnen.
+
+|Erweiterungen                 |-
+|Funktionale Anforderungen    |<<F0403>>
+|===
+
+[cols="1h, 3"]
+[[UC0740]]
+|===
+|ID                         |**<<UC0740>>**
+|Name                       |Verkaufssanfrage überprüfen
+|Beschreibung                |Jeder Verkaufsleiter findet im Menü Kundenverwaltung eine Übersicht mit den bearbeitenden Verkaufsanfragen.
+Er kann diese über Buttons an- bzw. ablehnen.
+|Akteure                     |Verkaufsleiter, CEO
+|Trigger                    |Der Benutzer drückt den Button "Verkaufssanfrage bestätigen" bzw. "Verkaufsanfrage ablehnen".
+|Vorbedingungen           a|Benutzer muss die Rolle Verkaufsleiter besitzen und in der Kundenverwaltung sein.
+|Wichtige Schritte           a|
+
+1.  Der Benutzer findet in der Kundenverwaltung eine Übersicht mit den zu überprüfenden Verkaufssanfragen.
+2.  Der Benutzer kann nun über den Button  "Verkaufsanfrage bestätigen" bzw. "Verkaufsanfrage ablehnen" die Verkaufsanfrage des Privatunden bestätigen oder ablehnen.
+
+|Erweiterungen                 |-
+|Funktionale Anforderungen    |<<F0405>>
+|===
+
+[cols="1h, 3"]
+[[UC0810]]
+|===
+|ID                         |**<<UC0810>>**
+|Name                       |Kontodaten bearbeiten
+|Beschreibung                |Jeder Kunde findet in der Kontoverwaltung einen Menüpunkt, wo er die Möglichkeit hat seine Kontodaten zu ändern.
+
+|Akteure                     |Geschäftskunde, Privatkunde
+|Trigger                    |Der Kunde drückt den Button "Kontodaten ändern".
+|Vorbedingungen           a|Der Kunde muss angemeldet und in der Kontoverwaltung sein .
+|Wichtige Schritte           a|
+
+1.  Der Kunde findet in der Kontoverwaltung einen Menüpunkt Kontodaten ändern.
+2.  Der Kunde kann nun in den einzelnen Textfeldern seine Angaben ändern.
+3.  Seine Änderung bestätigt er über dem Button "Kontodaten ändern".
+
+|Erweiterungen                 |-
+|Funktionale Anforderungen    |<<F0601>>
+|===
+
+[cols="1h, 3"]
+[[UC0820]]
+|===
+|ID                         |**<<UC0820>>**
+|Name                       |Passwort ändern
+|Beschreibung                |Jeder Kunde findet in der Kontoverwaltung einen Menüpunkt, wo er die Möglichkeit hat sein Passwort zu ändern.
+
+|Akteure                     |Geschäftskunde, Privatkunde
+|Trigger                    |Der Kunde drückt den Button "Passwort ändern".
+|Vorbedingungen           a|Der Kunde muss angemeldet und in der Kontoverwaltung sein .
+|Wichtige Schritte           a|
+
+1.  Der Kunde findet in der Kontoverwaltung einen Menüpunkt Passwort ändern.
+2.  Der Kunde kann nun in einem Textfeld sein Passwort ändern.
+3.  Seine Änderung bestätigt er über dem Button "Passwort ändern".
+
+|Erweiterungen                 |-
+|Funktionale Anforderungen    |<<F0602>>
+|===
+
+[cols="1h, 3"]
+[[UC0910]]
+|===
+|ID                         |**<<UC0910>>**
+|Name                       |Mitarbeiter hinzufügen
+|Beschreibung                |Der CEO findet in der Mitarbeiterverwaltung einen Menüpunkt, wo er die Möglichkeit hat Mitarbeiter hinzuzufügen.
+
+|Akteure                     |CEO
+|Trigger                    |Der CEO drückt den Button "Mitarbeiter hinzufügen".
+|Vorbedingungen           a|Der CEO muss angemeldet und in der Mitarbeiterverwaltung sein .
+|Wichtige Schritte           a|
+
+1.  Der CEO findet in der Mitarbeiterverwaltung einen Menüpunkt Mitarbeiter hinzufügen.
+2.  Der CEO kann nun in den einzelnen Textfeldern die Daten des Mitarbeiters hinzufügen.
+3.  Das Anlegen des Mitarbeiters bestätigt er über den Button "Mitarbeiter hinzufügen".
+
+|Erweiterungen                 |-
+|Funktionale Anforderungen    |<<F0701>>
+|===
+
+[cols="1h, 3"]
+[[UC0920]]
+|===
+|ID                         |**<<UC0920>>**
+|Name                       |Mitarbeiter löschen
+|Beschreibung                |Der CEO findet in der Mitarbeiterverwaltung eine Übersicht mit seinen Mitarbeitern, wo er die Möglichkeit hat Mitarbeiter zu entfernen.
+
+|Akteure                     |CEO
+|Trigger                    |Der CEO drückt den Button "Mitarbeiter entfernen".
+|Vorbedingungen           a|Der CEO muss angemeldet und in der Mitarbeiterverwaltung sein .
+|Wichtige Schritte           a|
+
+1.  Der CEO findet in der Mitarbeiterverwaltung eine Übersicht mit seinen Mitarbeitern.
+2.  Der CEO kann nun in der Übersicht Mitarbeiter löschen.
+3.  Das Löschen des Mitarbeiters bestätigt er über den Button "Mitarbeiter entfernen".
+
+|Erweiterungen                 |-
+|Funktionale Anforderungen    |<<F0702>>
+|===
+
+
+[cols="1h, 3"]
+[[UC1110]]
+|===
+|ID                         |**<<UC1110>>**
+|Name                       |Kategorien hinzufügen
+|Beschreibung                |Der Verkaufsleiter findet in der Kategorienverwaltung eine Übersicht mit den Kategorien von "Peripherie" und "Verbrauchsgegenstände", wo er die Möglichkeit hat Kategorien hinzuzufügen.
+
+|Akteure                     |Verkaufsleiter
+|Trigger                    |Der Verkaufsleiter drückt den Button "Kategorien hinzufügen".
+|Vorbedingungen           a|Der Verkaufsleiter muss angemeldet und in der Kategorienverwaltung sein .
+|Wichtige Schritte           a|
+
+1.  Der Verkaufsleiter findet in der Kategorienverwaltung die Übersicht der zu bearbeitenden Kategorien.
+2.  Der Verkaufsleiter kann nun in einem Textfeld eine neue Unterkategorie für die jeweilige Hauptkategorie hinzufügen.
+3.  Das Anlegen der Kategorie bestätigt er über den Button "Kategorie hinzufügen".
+
+|Erweiterungen                 |-
+|Funktionale Anforderungen    |<<F0901>>
+|===
+
+[cols="1h, 3"]
+[[UC1120]]
+|===
+|ID                         |**<<UC1120>>**
+|Name                       |Kategorien umbenennen
+|Beschreibung                |Der Verkaufsleiter findet in der Kategorienverwaltung eine Übersicht mit den Kategorien von "Peripherie" und "Verbrauchsgegenstände", wo er die Möglichkeit hat Kategorien umbenennen.
+
+|Akteure                     |Verkaufsleiter
+|Trigger                    |Der Verkaufsleiter drückt den Button "Kategorien umbenennen".
+|Vorbedingungen           a|Der Verkaufsleiter muss angemeldet und in der Kategorienverwaltung sein .
+|Wichtige Schritte           a|
+
+1.  Der Verkaufsleiter findet in der Kategorienverwaltung die Übersicht der zu bearbeitenden Kategorien.
+2.  Der Verkaufsleiter kann nun über den Button "Umbenennen" Unterkategorie für die jeweilige Hauptkategorie umbenennen.
+3.  Ein Textfeld öffnet sich über dem Namen der Kategorie.
+4.  Der Verkaufsleiter kann nun den Namen beliebig ändern und über den Button "Bestätigen" bestätigen.
+
+|Erweiterungen                 |-
+|Funktionale Anforderungen    |<<F0902>>
+|===
+
+
+
+== Funktionale Anforderungen
+
+=== Muss-Kriterien
+Was das zu erstellende Programm auf alle Fälle leisten muss.
+
+[options="header", cols="2h, 1, 3, 12"]
+|===
+|ID
+|Version
+|Name
+|Beschreibung
+
+|[[F0010]]<<F0010>>
+|v0.1
+|Loginportal
+a|
+Das System muss unterteilt sein in öffentliche Teile und Teile die einen Login benötigen. Das Loginportal wird durch den Button "Anmelden" erreicht.
+Zur Authentifizierung werden von einem registrierten Benutzer folgende Information (Login-Informationen) benötigt:
+
+* E-Mail
+* Passwort
+
+|[[F0020]]<<F0020>>
+|v0.1
+|Registrierungsportal
+a|
+Das System soll ein Registrierungsportal anbieten. Dort sollen sich nicht registrierte(<<F0010>>) Privatkunden und Geschäftskunden
+registrieren können. Dieses Portal wird durch den Button "Registrieren" erreicht. Der Nutzer soll auswählen ob er Privat oder Geschäftskunde(<<F0025>>) werden will.
+Der unregistrierte Privatkunde muss folgende Informationen angeben:
+
+* Benutzername
+* Vorname
+* Nachname
+* Straße und Hausnummer
+* PLZ und Wohnort
+* E-Mail Adresse
+* Telefonnummer
+* Passwort
+
+Das System verschlüsselt das Passwort(<<F0024>>) und legt nach erfolgreicher Validierung(<<F0021>>) der Daten einen neuen Privatkunden an und der Nutzer kann sich von nun an im Loginportal(<<F0010>>) mit seinen Login-
+Informationen anmelden.
+
+|[[F0021]]<<F0021>>
+|v0.1
+|Registrationsvalidierung
+a|
+Das System muss die Daten der unregistrierten Nutzer überprüfen.
+Der Benutzername muss einmalig sein.
+Die E-mail muss einmalig sein.
+Der Name der Firma muss einmalig sein.
+
+Der Nutzer soll während des Registrierungsprozesses in (<<F0020>>) über Validierungsprobleme informiert werden.
+
+|[[F0022]]<<F0022>>
+|v0.1
+|Zwei Faktor Authentifizierung
+a|
+Das System muss bei Geschäftskunden automatisch eine Zwei-Faktor-Authentifizierung auf dem Postweg starten.
+
+|[[F0023]]<<F0023>>
+|v0.1
+|Zuordnung eines Persönlichen Betreuers
+a|
+Das System muss einem Geschäftskunden einen eindeutigen Persönlichen Berater zuordnen.
+
+|[[F0024]]<<F0024>>
+|v0.1
+|Verschlüsselung des Passworts
+a|
+Das System muss das Passwort eines jeden Nutzers vor Speicherung in der Datenbank verschlüsseln.
+
+|[[F0025]]<<F0025>>
+|v0.1
+|Registrierung für Geschäftskunden
+a|
+Das System soll ein Registrierungsportal für Geschäftskunden anbieten. Dort sollen sich nicht registrierte(<<F0010>>) Geschäftskunden
+registrieren können. Dieses Portal wird durch den Button "Registrieren" erreicht.
+Der unregistrierte Geschäftskunde muss folgende Informationen angeben:
+
+* Vorname des Ansprechpartners
+* Nachname des Ansprechpartners
+* Name der Firma
+* Straße und Hausnummer der Firma
+* PLZ und Wohnort der Firma
+* E-Mail Adresse
+* Telefonnummer des Ansprechpartners
+
+Das System bestätigt dem Nutzer nach erfolgreicher Validierung(<<F0021>>) der Daten und erfolgreicher Zuordnung(<<F0023>>) den Registrierungsauftrag.
+Der Nutzer erhält eine Benachtichtigung, dass ihr Zugeordneter Verkaufsleiter sie über die weiteren Schritte(<<F0026>>) auf postalischem Wege informiert.
+
+|[[F0026]]<<F0026>>
+|v0.1
+|Geschäftskundenregistrierung bestätigen
+a|
+Der Verkaufsleiter sieht in seiner Kundenverwaltung nun den vom System zugeordneten Geschäftskunden. Der Verakufsleiter vergibt ein von ihm gewählte "Erstmals-Passwort" und
+schickt einen Brief mit genau diesem "Erstmals-Passwort" und einer zufällig gewählten Zeichenkette(hier:ID) an den Geschäftskunden.
+Der Geschäftskunde muss sich so nun mit seinem "Erstmals-Passwort" unter dem Login-Portal anmelden, seine ID bestätigen und sein Passwort ändern wie in (<<F0027>>) beschrieben.
+Mit diesen Schritten stimmt der Verkaufsleiter dem Antrag eines Unternehmens auf Registrierung zu. Alternativ kann der
+Verkaufsleiter natürlich auch einen Antrag ablehnen.
+
+|[[F0027]]<<F0027>>
+|v0.1
+|Erstmalige Anmeldung des Geschäftskunde
+a|
+Damit der Geschäftskunde seinen Account, der vom Verkaufsleiter freigeschalten worden ist, bestätigen kann, muss dieser
+sich im Loginportal(<<F0010>>) mit seinem per Post erhaltenem "Erstmals-Passwort" einloggen. Danach wird der
+Geschäftskunde zu einer separten Seite weitergeleitet. Auf dieser Seite muss nun der Geschäftskunde seine zufällige
+ID eingeben und ein eigenes neues Passwort vergeben. Danach kann sich der Geschäftskunde im System anmelden.
+
+|[[F0100]]<<F0100>>
+|v0.1
+|Lagerverwaltung
+a|
+Das System soll in der Lage die vorhandenen Produkte in einem Inventar dauerhaft zu speichern. Sowie dessen Inhalt
+in einer Lagerverwaltung dem Disponenten und dem Verkaufsleiter zur Verfügung stehen.
+
+|[[F0101]]<<F0101>>
+|v0.1
+|Einstellmöglichkeit für Disponenten
+a|
+Der Disponent soll dazu in der Lage sein in der Lagerverwaltung alle Produkte im Lager einsehen zu können und eine minimale Untergrenze , sowie eine maximale Obergrenze für Bestände setzen zu können.
+Weiterhin soll dieser dazu befähigt sein, Produkte aus dem Lager zu entfernen und sie nach den Kategorien zu sortieren.
+
+|[[F0102]]<<F0102>>
+|v0.1
+|Produkte/Verbrauchsgegenstände zum Lager hinzufügen
+a|
+Der Verkaufsleiter soll dazu in der Lage sein in der Lagerverwaltung neue Produkte und Verbrauchsgegenstände zum Lager hinzuzufügen. Das
+Einsehen des gesamten Bestandes ist ihm jedoch nicht gestattet.
+
+
+|[[F0210]]<<F0210>>
+|v0.1
+|Katalog
+a|
+Das System soll dazu in der Lage einen Katalog an existierenden Produkten(<<F0100>>) anzubieten auch für unregistrierte Benutzer(<<F0212>>).
+
+|[[F0211]]<<F0211>>
+|v0.1
+|Unterteilung in Reiter
+a|
+Das System soll verschiedene Produkte in den 3 Hauptkategorien: "Komplettsystem", "Peripherie" und "Verbrauchsgegenstände"
+anzeigen können. Die Hauptkategorien "Peripherie" und "Verbrauchsgegenstände" soll man außerdem nochmals in Reiter
+unterteilen können. Standardmäßig sind für die Peripherie folgende Unterkategorien vorgesehen: "Mäuse","Tastaturen", "Bildschirme" , "Lautsprecher".
+Bei den Verbrauchsgegenstände sind folgende Kategorien standradmäßig vorgesehen: "CDs", "Druckerpatronen", "Toner", "USB-Sticks", "SD-Karten", "Externe Festplatten".
+Außerdem soll der Verkaufsleiter in der Kategorienverwaltung(<<F0900>>) dazu in der Lage sein diese Kategorien zu bearbeiten.
+
+|[[F0212]]<<F0212>>
+|v0.1
+|Katalogeinsehbarkeit
+a|
+Das System soll den Katalog jedem Besucher der Wesbite anzeigen. Es ist demnach keine Anmelden nötig.
+
+|[[F0213]]<<F0213>>
+|v0.1
+|Service für Geschäftskunden
+a|
+Das System soll einem angemeldeten Geschäftskunden(<<F0010>>) die Möglichkeit anbieten unter Services, Reparaturaufträge(<<F0260>>),
+Upgrades als Serviceaufträge(<<F0250>>) sowie Verkaufsaufträge(<<F0404>>) zu erstellen.
+
+|[[F0220]]<<F0220>>
+|v0.1
+|Produktdetails anzeigen
+a|
+Das System soll dazu in der Lage einen Besucher der Wesbite Details über ein bestimmtes Produkt anzuzeigen nachdem dieser es angeklickt hat.
+Die folgenden Details müssen angeziegt werden:
+
+* Name
+* Beschreibung
+* Preis
+* Aktueller Lagerbestand
+* Bild
+
+_Note: As we have explained in the respective use case, the comment functionality essentially includes the rating._
+_While the client might have described these functions as two potentially different use cases, further domain analysis has led to the conclusion, that we can combine them, as happened with this functional requirement_
+
+|[[F0230]]<<F0230>>
+|v0.1
+|Service für Privatkunden
+a|
+Das System soll einem angemeldeten Privatkunden(<<F0010>>) die Möglichkeit geben unter "Services" -> "Mein Bestand"(<<F0240>>) seine bestellten Artikel
+einzusehen und zu verwalten. Außerdem kann der Privatkunde auch Verkaufsaufträge(<<F0404>>) erstellen.
+
+|[[F0240]]<<F0240>>
+|v0.1
+|Mein Bestand
+a|
+Das System soll einem angemeldeten Privatkunden(<<F0010>>) die Möglichkeit geben unter "Services" -> "Mein Bestand"(<<F0240>>) seine bestellten Artikel
+einzusehen. Außerdem soll ihm direkt dort die Möglichkeit gegeben werden seine bestehenden Komplettsystem direkt zu Verkaufen(<<F0404>>).
+
+|[[F0250]]<<F0250>>
+|v0.1
+|Upgrades
+a|
+Das System soll einem angemeldeten Geschäftskunden die Möglichkeit geben unter "Services" -> "Upgrades" seine bestellten Komplettsysteme
+aus einer Dropdown-Liste auszuwählen und für diese einzelne Komponeneten upzugraden. Damit wird für ihn ein Serviceantrag(<<F0410>>) erstellt,
+welcher noch von einem Verkaufsleiter überprüft werden muss(<<F0411>>). Die Kunden können folgende Komponenten ihres Systems upgraden:
+
+- CPU
+- Ram
+- Festplatte
+- Grafikkarte
+- Kühlung
+- Weitere Optionen(<<F0251>>)
+
+|[[F0251]]<<F0251>>
+|v0.1
+|Weitere Upgrades
+a|
+Über die normalen Upgrades hinaus soll der Kunde außerdem noch aus folgenden ergänzenden Optionen wählen können,
+die aber selbstverständlich nur rein optional sind:
+
+- Weitere Festplatte
+- Weitere Grafkikkarte
+- Soundkarte
+- Betriebssystem
+- Weitere Software (Antivirenprogramm,etc.)
+
+|[[F0260]]<<F0260>>
+|v0.1
+|Reparatur
+a|
+Das System soll einem angemeldeten Geschäftskunden die Möglichkeit geben unter "Services" -> "Reparatur" seine bestellten Komplettsysteme
+aus einer Dropdown-Liste auszuwählen und für diese einen Reparatur-Serviceantrag zu erstellen. Damit wird für den Kunden ein Serviceantrag(<<F0410>>) erstellt,
+welcher noch von einem Verkaufsleiter überprüft werden muss(<<F0411>>).
+
+|[[F0300]]<<F0300>>
+|v0.1
+|Warenkorb
+a|
+Das System soll dazu in der Lage jedem registrierten und unregistrierten Benutzer einen Warenkorb anzuzeigen, indem er temporär aus dem Katalog ausgewählte Produkte sehen kann.
+Der Warenkorb muss zu jedem Benutzer einmalig sein und vorrübergehend zwischengespeichert werden.
+
+|[[F0301]]<<F0301>>
+|v0.1
+|Produkt dem Warenkorb hinzufügen
+a|
+Das System soll jedem registrierten und unregistrierten Benutzer die Möglichkeit zu geben eine vom Nutzer bestimmte
+Anzahl von Produkten in den Warenkorb zu legen.
+
+Beim Hinzufügen des Produktes soll in dem Warenkorb des Nutzers ein Eintrag stattfinden.
+
+|[[F0310]]<<F0310>>
+|v0.1
+|Warenkorb anzeigen
+a|
+Das System soll dazu in der Lage jedem registrierten und unregistrierten Benutzer seinen eigenen Warenkorb anzuzeigen.
+Der Warenkorb enthält dann folgende Informationen:
+
+* Name
+* Preis jedes einzelnen Produktes
+* Zwischensumme jedes Produktes
+* Gesamtpreis des Warenkorbs
+* Bild
+
+|[[F0311]]<<F0311>>
+|v0.1
+|Warenkorb löschen
+a|
+Das System soll dazu in der Lage jedem registrierten und unregistrierten Benutzer seinen eigenen Warenkorb  mit dem
+Inhalt zu löschen/leeren.
+
+|[[F0312]]<<F0312>>
+|v0.1
+|Produkt aus Warenkorb entfernen
+a|
+Das System soll jedem registrierten und unregistrierten Benutzer die Möglichkeit geben, einzelne Produkte
+aus seinem eigenen Warenkorb zu löschen.
+
+|[[F0313]]<<F0313>>
+|v0.1
+|Produktanzahl in Warenkorb ändern
+a|
+Das System soll jedem registrierten und unregistrierten Benutzer die Möglichkeit geben, die Anzahl einzelner
+Produkte in seinem Warenkorb zu ändern.
+
+|[[F0320]]<<F0320>>
+|v0.1
+|Zur Kasse gehen
+a|
+Das System soll jedem registrierten und unregistrierten Benutzer die Möglichkeit geben zur Kasse zu gehen.
+Unregistrierte Benutzer müssen sich dann zunächst entweder "Anmelden" oder "Neu Registrieren" um ihre ausgewählten Produkte zu kaufen.
+
+Der registrierte Kunde muss vor Kauf seine Lieferadresse nochmals einsehen können, sowie seine Bezahldaten angeben.
+Der Kunde muss folgende Daten angeben:
+
+* Art der Bezahlung
+* Bezahlinformationen
+
+Die maximale Summe die ein Privatkunde bei HexaNux einkaufen kann liegt bei 5000€, sollte der Wert seines Warenkorbes darüber liegen, wird
+er darauf hingewiesen, dass er sich als Geschäftskunde registrieren muss um den Einkauf abzuschließen.
+Mit dem Klick auf "Zahlungspflichtig Bestellen" zu kaufen wird ein neuer Auftrag erstellt(<<F0401>>).
+
+|[[F0400]]<<F0400>>
+|v0.1
+|Bestellungen
+a|
+Das System muss dazu in der Lage sein dauerhaft Bestellungen zu speichern.
+
+|[[F0401]]<<F0401>>
+|v0.1
+|Bestellung erstellen
+a|
+Das System muss dazu in der Lage sein eine Bestellung aus den Produkten im Warenkorb eines Privatkunden zu erstellen.
+Eine neue Privatkunden-Bestellung soll mit dem Status "BEZAHLT" initialisiert werden.
+
+|[[F0402]]<<F0402>>
+|v0.1
+|Bestellungsanfrage stellen
+a|
+Das System muss dazu in der Lage sein eine Bestellungsanfrage aus den Produkten im
+Warenkorb eines Geschäftskundenzu erstellen. Die Anfragen müssen vor Bearbeitung durch den Verkaufsleiter validiert(<<F0403>>) werden.
+Eine neue Geschäftskunden-Bestellung soll mit dem Status "BEZAHLT UND NICHT ÜBERPRÜFT" initialisiert werden.
+
+|[[F0403]]<<F0403>>
+|v0.1
+|Bestellungsanfrage überprüfen
+a|
+Das System muss einem Verkaufsleiter in seiner Kundenverwaltung(<<F0800>>) die Möglichkeit geben, Bestellungsanfragen seiner zugeordneten
+Geschäftskunden anzuzeigen und zu bestätigen oder zu löschen.
+Eine bestätigte Geschäftskunden-Bestellung soll den Status "BEZAHLT UND BESTÄTIGT" übernehmen.
+Eine abgelehnte Geschäftskunden-Bestellung soll den Status "ABGELEHNT" übernehmen.
+
+|[[F0404]]<<F0404>>
+|v0.1
+|Verkaufsanfrage stellen
+a|
+Das System muss einem angemeldeten Privat- und Geschäftskunden die Möglichkeit geben unter "Services"-> "Verkauf", Anfragen zum
+Verkauf seiner bestellten Produkte zu ermöglichen.
+
+Bei Verkauf von Privat an HexaNux:
+Jeder Verkaufsleiter im System sieht in diesem Fall den Verkaufsantrag und kann ein direktes Angebot(<<F0406>>) an den Privatkunden mit seinem Preis
+senden.
+
+Bei Verkauf von Geschäftskunde an HexaNux:
+Der zugeordente Verkaufsleiter sieht in seinem System den Verkaufsantrag und kann ein direktes Angebot(<<F0406>>) an den Geschäftskunden mit seinem Preis
+senden.
+
+Eine neue Verkaufsanfrage soll mit dem Status "OFFEN" initialisiert werden.
+
+|[[F0405]]<<F0405>>
+|v0.1
+|Verkaufsanfrage überprüfen
+a|
+Das System muss einem Verkaufsleiter die Möglichkeit geben in seiner Kundenverwaltung(<<F0800>>), Verkaufsanfragen von Privat- und Geschäftskunden einzusehen und
+diese mit einem direkten Angebot und vom Verkaufsleiter gesetzten Preis zurück zu senden oder sie abzulehnen.
+Eine bestätigte Verkaufsanfrage soll den Status "BESTÄTIGT" übernehmen.
+Eine abgelehnte Verkaufsanfrage soll den Status "ABGELEHNT" übernehmen.
+
+|[[F0406]]<<F0406>>
+|v0.1
+|Verkaufsangebot übermitteln
+a|
+Das System muss einem Verkaufsleiter die Möglichkeit geben sein Verkaufsangebot an den Kunden zu übermitteln, damit dieser das Angebot annehmen
+oder ablehnen kann.
+
+|[[F0407]]<<F0407>>
+|v0.1
+|Verkaufsangebot überprüfen
+a|
+Das System muss einem angemeldeten Privat- und Geschäftskunden die Möglichkeit geben unter "Services"->"Verkauf" seine abgegebenen Verkaufsanfragen
+zu überprüfen und gegebenen falls übermittelte Kaufangebote der Verkaufsleiter von HexaNux anzunehmen oder abzulehnen. Dazu sehen Sie den gebotenen
+Preis. Die Kunden haben auch die Möglichekeit das Angebot abzulehnen.
+
+|[[F0410]]<<F0410>>
+|v0.1
+|Serviceantrag stellen
+a|
+Das System muss die vom Kunden abgegebenen Reparaturaufträge und Upgradeaufträge als Serviceantrag zu erstellen.
+Die Anträge müssen vor Bearbeitung durch den Verkaufsleiter validiert(<<F0411>>) werden.
+Ein neuer Serviceantrag soll mit dem Status "OFFEN" initialisiert werden.
+
+|[[F0411]]<<F0411>>
+|v0.1
+|Serviceantrag überprüfen
+a|
+Das System muss einem Verkaufsleiter die Möglichkeit geben in seiner Kundenverwaltung(<<F0800>>), Reparaturaufträge und Upgradeaufträge seiner zugeordneten
+Geschäftskunden anzuzeigen und zu bestätigen oder zu löschen.
+Ein bestätigter Serviceantrag soll den Status "BESTÄTIGT" übernehmen.
+Ein abgelehnter Serviceantrag soll den Status "ABGELEHNT" übernehmen.
+
+|[[F0500]]<<F0500>>
+|v0.1
+|Finanzverwaltung
+a|
+Das System soll dem CEO und dem Buchhalter Zugriff auf eine Finanzverwaltung gewähren. Dort zeigt das System alle Bestellungen an
+und rechnet deren Summen zu den insgesamten Einnahmen zusammen. In der Finanzverwaltung soll das System außerdem die Möglichekti zur
+Sortierung der Bestellungen(<<F0504>>)
+
+|[[F0501]]<<F0501>>
+|v0.1
+|Einnahmen und Ausgaben
+a|
+Das System soll dem CEO und dem Buchhalter Zugriff auf eine Gegenüberstellung der Einnahmen und Ausgaben gewähren.
+
+|[[F0504]]<<F0504>>
+|v0.1
+|Sortieren/Filtern der Bestellungen
+a|
+Das System soll dem CEO und dem Buchhalter  die Möglichkeit geben alle Bestellungen innerhalb der Finanzverwaltung
+nach Datum der Bestellung, Höhe der Einnahmen und dem Kunden selbst zu sortieren.
+
+|[[F0600]]<<F0600>>
+|v0.1
+|Kontoverwaltung
+a|
+Das System soll jedem angemeldeten Privat- und Geschäftskunden die Möglichkeit geben, sein Konto zu verwalten, das Passwort
+zu ändern(<<F0602>>) oder gegebenfalls Daten zu ändern(<<F0601>>).
+
+|[[F0601]]<<F0601>>
+|v0.1
+|Kontodaten bearbeiten
+a|
+Das System soll jedem angemeldeten Privat- und Geschäftskunden die Möglichkeit geben, in seinem Konto folgende Daten einsehen zu können:
+Die mit einem Stern markierten Daten sind die Daten die der Kunde selbst bearbeiten kann.
+Für Privatkunden:
+
+* Benutzername
+* Vorname*
+* Nachname*
+* Straße und Hausnummer*
+* PLZ und Wohnort*
+* E-Mail Adresse
+* Telefonnummer*
+* Passwort(<<F0602>>)*
+
+Für Geschäftskunden:
+
+* Vorname des Ansprechpartners*
+* Nachname des Ansprechpartners*
+* Name der Firma*
+* Straße und Hausnummer der Firma*
+* PLZ und Wohnort der Firma*
+* E-Mail Adresse
+* Telefonnummer des Ansprechpartners*
+* Passwort(<<F0602>>)*
+
+|[[F0602]]<<F0602>>
+|v0.1
+|Passwort ändern
+a|
+Das System soll jedem angemeldeten Privat- und Geschäftskunden die Möglichkeit geben, in seiner Kontoverwaltung nach erneuter
+überprüfung des aktuellen Passwortes ein neues Passwort angeben zu können.
+
+|[[F0700]]<<F0700>>
+|v0.1
+|Mitarbeiterverwaltung
+a|
+Das System soll dem CEO die Möglichkeit zur Verwaltung seiner Mitarbeiter geben. Dort kann er dann auch neuen Mitarbeiter hinzufügen
+und alte entlassen.
+
+|[[F0701]]<<F0701>>
+|v0.1
+|Mitarbeiter hinzufügen
+a|
+Das System soll dem CEO die Möglichkeit geben neue Mitarbeiter unter Angabe von:
+
+* Vorname
+* Nachname
+* Rolle
+* E-mail
+* Passwort
+
+|[[F0702]]<<F0702>>
+|v0.1
+|Mitarbeiter entfernen
+a|
+Das System soll dem CEO die Möglichkeit einzelne Mitarbeiter aus dem System zu löschen.
+
+|[[F0800]]<<F0800>>
+|v0.1
+|Kundenverwaltung
+a|
+Das System soll dem CEO und Verkaufsleiter die Möglichkeit geben seine Kunden zu verwalten. Hierbei hat der CEO die volle
+Einsicht auf alle Kunden. Der Verkaufsleiter jedoch nur auf die ihm zugeordneten Geschäftskunden. Von hier aus kann der Verkaufsleiter
+alle Serviceanträge seiner zugeordneten Geschäftskunden und die Verkaufsanfragen der Privatkunden überblicken.
+
+|[[F0900]]<<F0900>>
+|v0.1
+|Kategorienverwaltung
+a|
+Das System soll Verkaufsleiter die Möglichkeit geben die Unterkategorien der Hauptkategorien "Peripherie" und "Verbrauchsgegenstände" zu überblicken
+und neue Kategorien hinzuzufügen(<<F0901>>) oder die Kategorien umzubenennen(<<F0902>>).
+
+|[[F0901]]<<F0901>>
+|v0.1
+|Kategorie hinzufügen
+a|
+Das System soll Verkaufsleiter die Möglichkeit geben neue Unterkategorien der Hauptkategorien "Peripherie" und "Verbrauchsgegenstände"
+hinzuzufügen(<<F0901>>) unter Angabe eines Namens und unter welcher Hauptkategorie sich die neue Unterkategorie befindet.
+
+|[[F0902]]<<F0902>>
+|v0.1
+|Kategorie umbennen
+a|
+Das System soll Verkaufsleiter die Möglichkeit geben die Unterkategorien der Hauptkategorien "Peripherie" und "Verbrauchsgegenstände"
+umzubennen unter Angabe eines neuen Namens.
+
+
+
+|===
+
+=== Kann-Kriterien
+
+[options="header", cols="2h, 1, 3, 12"]
+|===
+|ID
+|Version
+|Name
+|Beschreibung
+|[[F0221]]<<F0221>>
+|v0.1
+|Lagerbestand anzeigen
+a|
+Das System soll dem jedem Nutzer der Website in den Produktdetails den Lagerbestand des gewünschten Artikels anzeigen.
+
+|[[F0222]]<<F0222>>
+|v0.1
+|Kommentare anzeigen
+a|
+Das System soll jedem Nutzer der Website Kommentare zu den einzelnen Produkten anzeigen.
+
+|[[F0223]]<<F0223>>
+|v0.1
+|Kommentare hinzufügen
+a|
+Das System soll jedem Nutzer der Website nach Anmeldung erlauben Kommentare zu den einzelnen Produkten zu schreiben.
+
+|[[F0252]]<<F0252>>
+|v0.1
+|Upgrade als Paket
+a|
+Das System soll einem angemeldeten Geschäftskunden die Möglichkeit geben unter "Services" -> "Upgrades" ein Paketartiges Upgrade
+seines Systems zu kaufen(z.B. "Leises System", "Super-Server-System")
+
+|[[F0502]]<<F0502>>
+|v0.1
+|Ansicht als Graph
+a|
+Das System soll dem CEO und dem Buchhalter Zugriff auf eine Ansicht der Finanzen als Graph gewähren.
+
+|[[F0503]]<<F0503>>
+|v0.1
+|Export als PDF
+a|
+Das System soll dem CEO und dem Buchhalter die Möglichekeit geben die Finanzansicht als PDF zu exportieren.
+
+|[[F0506]]<<F0506>>
+|v0.1
+|Finanzübersicht drucken
+a|
+Das System soll dem CEO und dem Buchhalter die Möglichekeit geben die Finanzansicht zu drucken.
+
+|===
+== Nicht-Funktionale Anforderungen
+
+=== Qualitätsziele
+
+Dokumentieren Sie in einer Tabelle die Qualitätsziele, welche das System erreichen soll, sowie deren Priorität.
+
+=== Konkrete Nicht-Funktionale Anforderungen
+
+Beschreiben Sie Nicht-Funktionale Anforderungen, welche dazu dienen, die zuvor definierten Qualitätsziele zu erreichen.
+Achten Sie darauf, dass deren Erfüllung (mindestens theoretisch) messbar sein muss.
+
+== GUI Prototyp
+
+In diesem Kapitel soll ein Entwurf der Navigationsmöglichkeiten und Dialoge des Systems erstellt werden.
+Idealerweise entsteht auch ein grafischer Prototyp, welcher dem Kunden zeigt, wie sein System visuell umgesetzt werden soll.
+Konkrete Absprachen - beispielsweise ob der grafische Prototyp oder die Dialoglandkarte höhere Priorität hat - sind mit dem Kunden zu treffen.
+
+=== Überblick: Dialoglandkarte
+Erstellen Sie ein Übersichtsdiagramm, das das Zusammenspiel Ihrer Masken zur Laufzeit darstellt. Also mit welchen Aktionen zwischen den Masken navigiert wird.
+//Die nachfolgende Abbildung zeigt eine an die Pinnwand gezeichnete Dialoglandkarte. Ihre Karte sollte zusätzlich die Buttons/Funktionen darstellen, mit deren Hilfe Sie zwischen den Masken navigieren.
+
+=== Dialogbeschreibung
+Für jeden Dialog:
+
+1. Kurze textuelle Dialogbeschreibung eingefügt: Was soll der jeweilige Dialog? Was kann man damit tun? Überblick?
+2. Maskenentwürfe (Screenshot, Mockup)
+3. Maskenelemente (Ein/Ausgabefelder, Aktionen wie Buttons, Listen, …)
+4. Evtl. Maskendetails, spezielle Widgets
+
+DESIGNENTWÜRFE
+ID - Name
+
+[[frame]]
+image::.\models\design\GUI0000.jpg[frame, 80%, 80%, pdfwidth=80%, title= "GUI000, Frame", align=center]
+
+
+[options="header", cols="2h, 1, 3, 12"]
+|===
+|ID
+|Version
+|Name
+|Beschreibung               
+|[[GUI0000]]<<GUI0000>>
+|v.0.6
+|Frame
+a|
+Grober Rahmen der Website, der auf jeder Seite gleich (oder mit wenig Abweichung) aussieht mit Drop-Down-Menüs der einzelnen Reiter. Die verschiedenen Reiter haben unterschiedliche Zugangsberechtigungen. (Der Reiter Serviceanfragen entfällt; Serviceanfragen und Bestellanfragen sind ins Drop-Down-Menü der Kundendatenbank ausgelagert worden). 
+Die Reiter Startseite, Produkte, Services und Mein Konto können von allen Nutzern eingesehen werden, der CEO kann alle Reiter sehen. Zusätzlich haben auf die Kundendatenbank inclusive Service- und Bestellanfragen die Verkaufsleiter zugriff; dieselben dürfen das Lager einsehen, haben aber dort keine Schreibrechte. Am Lager dürfen sich Disponent und Buchhalter Lese- und Schreibrechte teilen. Die Mitarbeiterverwaltung fällt allein dem CEO zu, bei den Finanzen bekommt er Unterstützung vom Buchhalter.
+
+|[[GUI0010]]<<GUI0010>>
+|v.0.6
+|Startseite
+a|
+Die Startseite begrüßt den Nutzer, kann evtl. aktuelle Informationen bereithalten und ist sozusagen die Main Page.
+
+|[[GUI0020]]<<GUI0020>>
+|v.0.6
+|Anmeldung
+a|
+Diese Ansicht kann jederzeit durch den "Anmelden"-Button rechts oben im Frame erreicht werden. Bereits registrierte Nutzer können sich mithilfe ihrer Anmeldedaten Zugang zum System beschaffen und ihre Rechte erweitern (ein unregistrierter Kunde zum Beispiel darf keine Einkäufe tätigen...).
+Sind Eingaben inkorrekt oder der Nutzer ist nicht in der Datenbank vorhanden, wird er gebeten, seine Eingaben zu überprüfen.
+
+|[[GUI0021]]<<GUI0021>>
+|v.0.6
+|Kundenrolle
+a|
+Will sich ein Kunde neu registrieren, wird er zunächst auf diese Schaltfläche weitergeleitet. Hier muss er angeben, ob er für private Zwecke oder für eine Firma einkaufen möchte. Ab einer Bestellung mit 5000€ Umfang muss der Kunde als Geschäftskunde registriert sein, damit Großeinkäufe von Verkaufsberatern abgenickt werden können.
+
+|[[GUI0022]]<<GUI0022>>
+|v.0.6
+|Registrieren als Privatkunde
+a|
+Die Daten des Privatkunden werden erhoben. Der Privatkunde darf Bestellungen selbstständig tätigen und sich deshalb selbstständig registrieren. Sind Eingaben ungültig (E-Mail hat das falsche Format o.ä.) wird der Nutzer gebeten, seine Eingaben zu überprüfen.
+
+|[[GUI0023]]<<GUI0023>>
+|v.0.6
+|Registrieren als Geschäftskunde
+a|
+Die Daten des Geschäftskunden werden erhoben. Da der Geschäftskunde potentiell deutlich größere Einkäufe tätigt, muss dem Ansprechpartner der Firma ein Verkaufsberater zugeordnet werden, der dessen Bestellungs- und Serviceanfragen betreut. Der Verkaufsberater ist es auch, der die Registrierung des Geschäftskunden bestätigt. Validierung wie bei Privatkunde.
+
+|[[GUI0024]]<<GUI0024>>
+|v.0.6
+|Registrierung Geschäftskunde valide
+a|
+Ist die Validierung abgeschlossen, wird die Registrierungsanfrage an den betreuenden Verkaufsleiter weitergeleitet. Der Ansprechpartner bzw. Einkäufer der Firma kann sich die Kontaktdaten des betreuenden Verkaufsleiters herunterladen.
+Das erste, worum sich der Verkaufsleiter kümmert ist, die Anmeldedaten auf dem Postweg zum Kunden zu senden.
+
+|[[GUI0030]]<<GUI0030>>
+|v.0.6
+|Produktkatalog Template
+a|
+Der Produktkatalog ist momentan in drei Kategorien eingeteilt: Computerkomplettsysteme, Peripherie und Verbrauchsgegenstände. Befugte Nutzer können weitere Kategorien hinzufügen.
+Dies ist ein Template, da die Seiten für die zweite und dritte Kategorie gleich aufgebaut sind und sich lediglich in der Überschrift und den Produkten unterscheiden. Das Breadcrumb-Menü zeigt an, in welchem Reiter wir uns befinden. Produkte können von dieser Ansicht aus in den Warenkorb gelegt werden oder durch einmaliges Anklicken können Details des Produktes angezeigt werden.
+
+|[[GUI0031]]<<GUI0031>>
+|v.0.6
+|Produkt Detailansicht Template
+a|
+Hier ist die Detailansicht eines Produktes zu sehen. Wieder ist es ein Template, da die Detailansichten anderer Produkte nur wenig abweichen werden. Die Detailansicht bietet die Möglichkeit, die Stückzahl zu verändern, bevor das Produkt in den Warenkorb gelegt wird. Eine Besonderheit der PC-Komplettsysteme sind die Konfigurationsmöglichkeiten. Diese sieht ähnlich wie das Update-Template aus. Es können eine zweite Festplatte sowie Grafikkarte, eine Soundkarte oder zusätzliche Software dazugekauft werden. Die machen das Produkt entsprechend teurer.
+
+|[[GUI0040]]<<GUI0040>>
+|v.0.6
+|Lager Template
+a|
+Das Lager ist ähnlich aufgebaut wie der Produktkatalog und auch hier gibt es für jede der drei Kategorien eine Ansicht. Um es spannender zu halten ist diesmal die Peripherie als Beispiel aufgeführt. Anders als am Produktkatalog ist, dass hier (von autorisierten Nutzern) Produkte gelöscht und hinzugefügt werden können und die Nachbestellung geregelt wird. Fällt der Lagerbestand unter die Untergrenze, wird bis zur Obergrenze aufgestockt. Diese Grenzen können variiert werden.
+Außerdem kann das Lager nach Preis und Artikeln gefiltert werden. Die Detailansicht ähnelt ebenfalls der des Produktes im Produktkatalog, nur, dass die Beschreibung veränderbar ist und die neuen Funktionen (Art. löschen, Bestellgrenzen regeln etc.) eingebunden sind.
+
+|[[GUI0050]]<<GUI0050>>
+|v.0.6
+|Kundendatenbank
+a|
+Die Kundendatenbank enthält alle bestehenden Privat- und Geschäftskunden und deren Daten. Die Detailansicht zeigt alle bei der Registrierung erhobenen Daten an.
+
+|[[GUI0051]]<<GUI0051>>
+|v.0.6
+|Neukunden-Anfragen
+a|
+Wie oben erwähnt müssen Registrierungen von Geschäftskunden erst durch den betreuenden Verkaufsleiter bestätigt werden. Ebenjener findet die Kundenanfragen, die für ihn bestimmt sind, unter dem Reiter Kundendatenbank in der Unterkategorie Registrierungsanfragen. Diese kann er annehmen oder ablehnen.
+Der CEO sieht uneingeschränkt alle Anfragen und darf ebenfalls annehmen oder ablehnen.
+
+|[[GUI0052]]<<GUI0052>>
+|v.0.6
+|Serviceanfragen
+a|
+Wie bei den Registrierungsanfragen sieht nur der betreffende Verkaufsleiter eine Anfrage, die er prüfen und dann annehmen oder ablehnen kann. Der CEO sieht wieder alle Anfragen. Detailansicht entsprechend wie die der Bestellanfrage B1 (GUI0054)
+
+|[[GUI0053]]<<GUI0053>>
+|v.0.6
+|Bestellanfragen
+a|
+id. siehe Serviceanfragen.
+
+|[[GUI0054]]<<GUI0054>>
+|v.0.6
+|Bestellanfragen Detailansicht Template
+a|
+In der Detailansicht sollen alle vertragsrelevanten Details angezeigt werden, der Verkaufsleiter soll die Möglichkeit haben, sich das Produkt nochmal anzuschauen (Klick auf das Artikelkästchen rechts oben), eine Kundenmitteilung zu erstellen (falls bspw. wie in diesem Fall zu wenig Produkte auf Lager sind oder es anderweitig Verzögerungen etc. geben könnte) oder den Auftrag einfach zu bewilligen.
+
+|[[GUI0060]]<<GUI0060>>
+|v.0.6
+|Warenkorb
+a|
+Jeder Onlinehandel hat einen Warenkorb. Dieser ist jederzeit durch die Schaltfläche "Warenkorb" rechts oben im Frame zu erreichen. In den Warenkorb können Produkte von der Produktkatalogseite und der Produkt-Detailansicht gelegt werden. In der Warenkorbansicht können Produkte entfernt oder deren Anzahl verändert werden und der Warenkorb kann auch gänzlich geleert werden. Man sieht die jeweiligen Einzelpreise und den Gesamtwert des Einkaufes und kann sich entscheiden, ob man nun bestellen oder noch weiter im Katalog stöbern möchte.
+Wählt man "Jetzt bestellen", ist aber noch nicht angemeldet/ registriert, erscheint eine Fehlermeldung, dass der Vorgang nur als angemeldeter Nutzer ausgeführt werden kann.
+
+|[[GUI0061]]<<GUI0061>>
+|v.0.6
+|Bestellvorgang
+a|
+Beim Bestellvorgang wird die Lieferadresse angezeigt (nicht änderbar! Änderungen der Daten im Reiter "Mein Konto" möglich) und Bezahldaten verlangt, sofern diese für den jeweiligen Nutzer noch nicht gespeichert waren.
+Die Bestellung eines Privatkunden wird direkt ausgeführt wenn keine weiteren Probleme vorliegen. Ein mögliches Problem wäre, wenn nicht mehr genügend Waren eines Typs vorhanden sind. Der Nutzer wird darauf hingewiesen, dass die Lieferung länger dauern würde und gefragt, ob er dennoch bestellen möchte.
+Die Bestellung eines Geschäftskunden landet im Posteingang seines zugewiesenen Beraters (Kundendatenbank>Bestellanfragen) und muss erst geprüft werden, bevor sie ausgeführt wird.
+Will ein Privatkunde eine Bestellung aufgeben, die einen größeren Umfang als 5000€ hat, wird er darauf hingewiesen, dass er nur als Geschäftskunde befugt ist, einen solch großen Einkauf zu tätigen.
+
+|[[GUI0070]]<<GUI0070>>
+|v.0.6
+|Finanzen
+a|
+Der Reiter Finanzen ist aufgeteilt in zwei Seiten; GUI0070 und GUI0071. Dies ist die Übersicht über Einnahmen, Ausgaben und Balance.
+
+|[[GUI0071]]<<GUI0071>>
+|v.0.6
+|Finanzen 2
+a|
+Dies ist die Übersicht aller getätigten Bestellungen, filterbar nach Kundenrolle, Datum und Preis.
+
+|[[GUI0080]]<<GUI0080>>
+|v.0.6
+|Mitarbeiterverwaltung
+a|
+Auf die Mitarbeiterverwaltung hat nur der CEO zugriff. Er allein darf Mitarbeiter entfernen oder hinzufügen. In der Detailansicht sind alle zur Registrierung des neuen Mitarbeiters erhobenen Daten, sowie die ID zu finden.
+
+|[[GUI0081]]<<GUI0081>>
+|v.0.6
+|Neuer Mitarbeiter
+a|
+Wird ein neuer Mitarbeiter dem Unternehmen hinzugefügt, werden dessen Daten (Name, E-Mail) erhoben und die Rolle (Disponent, Verkaufsleiter,...) festgelegt. Wird der Button "Mitarbeiter hinzufügen" angewählt, wird eine ID und ein zufälliges Passwort generiert. Die ID ist der Benutzername des Mitarbeiters. Sie ist wichtig, um bspw. Verkaufsleitern die korrekten Serviceanfragen anzuzeigen - nur die, die den bestimmten Verkaufsleiter betreffen. Das Passwort kann selbstverständlich über den Reiter "Mein Konto" geändert werden.
+
+|[[GUI0090]]<<GUI0090>>
+|v.0.6
+|Meine Angebote
+a|
+Hat ein Nutzer ein gekauftes PC-Komplettsystem zum Rückverkauf angeboten und dessen Wert schätzen lassen, findet er den geschätzten Wert unter dem Reiter "Mein Konto > Meine Angebote". Genaueres bei [[GUI0103]].
+
+|[[GUI0091]]<<GUI0091>>
+|v.0.6
+|Mein Konto
+a|
+Unter dem Reiter "Mein Konto" kann jeder Nutzer des Systems seine Angaben und sein Passwort ändern. Ausnahme bildet die ID der Mitarbeiter, die ist nicht änderbar.
+
+|[[GUI0100]]<<GUI0100>>
+|v.0.6
+|Mein Bestand
+a|
+Hier werden alle bei HexaNUX gekauften PC-Komplettsysteme angezeigt. Verbrauchsgegenstände und Peripherie nicht, weil es dafür keine Serviceangebote gibt.
+Man kann sich alle Geräte anzeigen lassen oder in die Detailansicht eines Gerätes gehen. Diese Ähnelt der Produkt-Detailansicht [[GUI0031]], mit Ausnahme der Schaltflächen. Anstelle von "In den Warenkorb" und "Konfigurationsmöglichkeiten gibt es den Button "Verkaufen" für Geschäfts- und Privatkunden, sowie "Reparatur" und Upgrade" nur für Geschäftskunden.
+
+|[[GUI0101]]<<GUI0101>>
+|v.0.6
+|Reparatur
+a|
+Ein Service, der nur für Geschäftskunden angeboten wird. Navigiert man über das Drop-Down-Menü zum Reparaturantrag, muss man das Gerät/ die Geräte noch auswählen, navigiert man über die Schaltfläche "Reparatur" von der Detailansicht des Gerätes unter "Mein Bestand" zum Reparaturantrag, ist das Gerät schon ausgewählt. Selbes gilt für die Schaltflächen Verkaufen und Upgrade.
+Notwendige Eingaben sind das Gerät und eine kurze Beschreibung des Problems. Der Reparaturantrag wird vom Verkaufsmanager angeschaut, bevor er bestätigt und ausgeführt wird.
+
+|[[GUI0102]]<<GUI0102>>
+|v.0.6
+|Upgrade
+a|
+Nach der Auswahl des Gerätes können upgrades gewählt werden. Alles bis auf das Mainboard kann ersetzt werden und zusätzliche Optionen können gebucht werden. Hinzufügen weiterer Optionen nach Rücksprache. Auch der Upgradeantrag muss vom Verkaufsleiter bestätigt werden.
+
+|[[GUI0103]]<<GUI0103>>
+|v.0.6
+|Verkaufen
+a|
+Im HexaNUX Onlineshop gekaufte Waren können von Privat- und Geschäftskunden zurückverkauft werden. Dafür wird das Gerät angegeben und ein beliebiger Verkaufsleiter schätzt den Wert des Gerätes (nach Alter...) ein. Das Angebot findet der Kunde unter "Mein Konto > Meine Angebote". Dort kann er sich entscheiden, ob er das Gerät für den Preis verkaufen möchte oder nicht.
+
+|===
+
+== Datenmodell
+
+=== Überblick: Klassendiagramm
+UML-Analyseklassendiagramm
+
+image::.\models\analysis\images\05-Klassendiagramm.PNG[Analyseklassendiagramm, 80%, 80%, pdfwidth=80%, title= "Analyseklassendiagramm von {project_name}", align=center]
+
+=== Klassen und Enumerationen
+Dieser Abschnitt stellt eine Vereinigung von Glossar und der Beschreibung von Klassen/Enumerationen dar. Jede Klasse und Enumeration wird in Form eines Glossars textuell beschrieben. Zusätzlich werden eventuellen Konsistenz- und Formatierungsregeln aufgeführt.
+
+// See http://asciidoctor.org/docs/user-manual/#tables
+[options="header"]
+|===
+|Klasse/Enumeration |Beschreibung 
+|HexaNux          |Repräsentiert das Gesamtsystem. Innerhlab dieser Klasse werden auch Objekte von Catalog, Inventory und CashBook erzeugt und bei Bedarf als Referenz ausgegeben.
+Alle Instancen von User werden innerhalb dieser Klasse erzeugt und als Referenz zurückgegeben. Die Klasse besitzt zusätzlich das Attribut "currentUser", welcher für bestimmte Funktionen nicht den Wert NULL haben darf (z.B.: Registrierung eines BusinessCustomer).
+|User               |Symbolisiert eine abstrakte Klasse, von welcher die Nutzer (welche auf das System zugreifen) abgeleitet werden. 
+|Accountant         |Stellt den Benutzer "Buchhalter" im System dar. Diese Klasse kann als einzige auf das Kassenbuch (CashBook) zugreifen und aktiv bearbeiten. 
+|CEO                |Stellt den Geschäftsführer des Systems dar. 
+|BusinessCustomer   |Ein BusinessCustomer repräsentiert den Geschäftskunden. 
+|PrivateUser        |Der PrivateUser symbolisiert eine Person, welche das System privat nutzt. 
+|SalesManager       |Der SalesManager stellt den Verkaufsleiter innerhalb des Systems dar. Er ist für die Bearbeitung der Service- und Bestellungsaufträge der Geschäftskunden verantwortlich. 
+Zusätzlich ist er für das Zurückkaufen von Produkten von PrivateUser zuständig. Er ist auch der einzige der innerhalb des Systems Produkte zum/vom Inventar (Inventory) hinzufügen/entfernen kann. 
+|ContactData        |Diese Klasse beinhaltet die Kontaktdaten der einzelnen User. 
+|Cart               |Die Klasse Cart stellt den Warenkorb des Kunden dar - dabei besitzt dieser nur eine Liste von Cartitems. Bei Kauf der Artikel des Warenkorbs wird automatisch eine Bestellung (Order) ausgelöst. 
+|CartItem           |Stellt Information über Warenkorbartikel bereit. Dabei werden zum Artikel zusätzlich noch Gesamtanzahl und Gesamtpreis gespeichert. 
+|CashBook           |Diese Klasse speichert alle Bestellungen (Order), sowie auch die Einkäufe dar. 
+|Catalog            |Ein Catalog besitzt alle Referenzen auf Produkte (Product), welche verkauft werden sollten. Dieser kann auf Filterkriterien durchsucht werden. 
+|Inventory          |Stellt das reale Lager des System dar. Diese Klasse besitzt eine Zusammenfassung aller InventoryItem. 
+|InventoryItem      |Gibt Auskunft über die Lagerdetails eines Produktes. 
+|Service            |Alle Service- und/oder Reperaturaufträge werden durch diese Klasse im System dargestellt. Dabei ist es wichtig, dass diese neben einen BusinessCustomer auch seinen Betreuer (SalesManager) beinhaltet. Zustand des Service wird durch ServiceStatus abgebildet - bei Status "APPROVED" wird automatisch eine Bestellung (Order) generiert. 
+|Order              |Mit einer Bestellung wird angegeben, was ein Kunde des Geschäfts bei welchem Preis und mit welcher Zahlungsart im Geschäfts kaufen möchte. Ein Auftrag kann einen unterschiedlichen Status haben, um den aktuellen Schritt zu symbolisieren, in dem der Auftrag verarbeitet wird.
+|SaleProduct        |Stellt den Verkaufsprozess eines Produktes von einem PrivateUser mit einem SalesManager dar. 
+|Product            |Die Klasse Produkt symbolisiert ein Produkt, Komplettsystem oder ein Verbrauchsmaterial im System dar. Zusätzlich besitzt ein Produkt eine Liste von Lieferanten mit den jeweiligen Einkaufspreisen (SupplierItem). 
+|Supplier           |Allgemeine Darstellung eines Liefernaten im System. 
+|SuppliererItem     |Stellt die Information, wie Einkaufspreis und Lieferzeit dar. 
+|ServiceType        |Stellt eine zusätzliche Auskunft für den Serviceantrag bereit.
+|ServiceStatus      |Der Zustand eines Serviceantrages zwischen BusinessCustomer und SalesManager kann dabei folgende Zustände annehmen: +
+OPEN: Der Serviceantrag ist bei dem Salesmanager eingegangen und wird bearbeitet. +
+APPROVED: Der Auftrag ist von dem SalesManager freigegeben worden und eine Bestellung wurde generiert. +
+CLOSED: Der Auftrag ist von dem BusinessCustomer bezahlt worden. 
+|Payment            |Beschreibt die möglichen Bezahlarten im System. 
+|OrderStatus        |Beschreibt den Bestellstatuses: +
+OPEN: Bestellung wurde noch nicht bezahlt. +
+PAID: Bestellung wurde bezahlt. +
+COMPLETE: Bestellung wurde zum Versand freigegeben oder befindet sich bereits auf dem Weg zum Kunden. +
+CANCELED: Bestellung wurde storniert. 
+|===
+
+== Akzeptanztestfälle
+Mithilfe von Akzeptanztests wird geprüft, ob die Software die funktionalen Erwartungen und Anforderungen im Gebrauch erfüllt. Diese sollen und können aus den Anwendungsfallbeschreibungen und den UML-Sequenzdiagrammen abgeleitet werden. D.h., pro (komplexen) Anwendungsfall gibt es typischerweise mindestens ein Sequenzdiagramm (welches ein Szenarium beschreibt). Für jedes Szenarium sollte es einen Akzeptanztestfall geben. Listen Sie alle Akzeptanztestfälle in tabellarischer Form auf.
+Jeder Testfall soll mit einer ID versehen werde, um später zwischen den Dokumenten (z.B. im Test-Plan) referenzieren zu können.
+
+== Glossar
+Sämtliche Begriffe, die innerhalb des Projektes verwendet werden und deren gemeinsames Verständnis aller beteiligten Stakeholder essentiell ist, sollten hier aufgeführt werden.
+Insbesondere Begriffe der zu implementierenden Domäne wurden bereits beschrieben, jedoch gibt es meist mehr Begriffe, die einer Beschreibung bedürfen. +
+Beispiel: Was bedeutet "Kunde"? Ein Nutzer des Systems? Der Kunde des Projektes (Auftraggeber)?
+
+== Offene Punkte
+Offene Punkte werden entweder direkt in der Spezifikation notiert. Wenn das Pflichtenheft zum finalen Review vorgelegt wird, sollte es keine offenen Punkte mehr geben.
